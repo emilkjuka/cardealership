@@ -11,12 +11,12 @@
 10;Audi;A6;2021;Sedan;Red;73.302,00 EUR;New;
 11;Audi;A7;2021;Sedan;Black;84.600,00 EUR;New;
 12;Audi;A8;2021;Sedan;Silver;113.292,00 EUR;New;
-13;Audi;Q2;2021;SUV;Gray;;New;
-14;Audi;Q3;2021;SUV;Orange;;New;
-15;Audi;Q5;2021;SUV;Black;;New;
-16;Audi;Q7;2021;SUV;White;;New;
-17;Audi;Q8;2021;SUV;Gray;;New;
-18;Audi;TT;2021;Coupe;Blue;;New;
+13;Audi;Q2;2021;SUV;Gray;36.900,00;New;
+14;Audi;Q3;2021;SUV;Orange;39.990,00;New;
+15;Audi;Q5;2021;SUV;Black;45.000,00;New;
+16;Audi;Q7;2021;SUV;White;75.000,00;New;
+17;Audi;Q8;2021;SUV;Gray;112.000,00;New;
+18;Audi;TT;2021;Coupe;Blue;65.000,00;New;
 19;Audi;A5;2014;Coupe;Black;40.500,00 EUR;Used;
 20;Audi;A3;2015;Hatchback;Silver;12.000,00 EUR;Used;
 21;Audi;A3;2009;Hatchback;Silver;7.400,00 EUR;Used;
