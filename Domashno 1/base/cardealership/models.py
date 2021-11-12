@@ -10,7 +10,7 @@ class Dealership(models.Model):
     dealership_y_coordinate = models.DecimalField(decimal_places=7, max_digits=12)
     
     def __str__(self):
-        return f"{self.dealership_name} x:{self.dealership_x_coordinate} y:{self.dealership_y_coordinate}"
+        return f"{self.dealership_name} y:{self.dealership_y_coordinate} x:{self.dealership_x_coordinate}"
        
 class Car(models.Model):
     car_id = models.IntegerField(default=-1)
