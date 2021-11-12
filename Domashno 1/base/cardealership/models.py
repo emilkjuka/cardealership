@@ -6,8 +6,8 @@ import string
 
 class Dealership(models.Model):
     dealership_name = models.CharField(max_length=50)
-    dealership_x_coordinate = models.DecimalField(decimal_places=7, max_digits=12)
     dealership_y_coordinate = models.DecimalField(decimal_places=7, max_digits=12)
+    dealership_x_coordinate = models.DecimalField(decimal_places=7, max_digits=12)
     
     def __str__(self):
         return f"{self.dealership_name} y:{self.dealership_y_coordinate} x:{self.dealership_x_coordinate}"
