@@ -9,7 +9,9 @@ area[name="Скопје"];
   way["shop"="car"](area);
   node["shop"="car"](area);
 );
-out center;
+out body;
+>;
+out skel qt;
 """
 response = requests.get(overpass_url, 
                         params={'data': overpass_query})

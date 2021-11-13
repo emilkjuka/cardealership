@@ -1,0 +1,9 @@
+query.py - Pipe 
+dealership_importer.py - Filter
+car_importer.py - Pipe & Filter
+carDatabase.csv - Database for cars 
+dealership_data.json - Database for Dealerships from query 
+
+Податоците се ставени во датабазата на проектот. Датабазата може да се пристапи при користење на django shell (python manage.py shell) или со admin(username: admin, password:admin).
+
+
