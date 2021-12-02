@@ -36,5 +36,10 @@
         </div>
       </div>
     </nav>
+    <div>
+        {% for dealership in dealership_list %}
+        <li>{{ dealership.dealership_information }}</li>
+        {% endfor %}
+    </div>
   </body>
 </html>

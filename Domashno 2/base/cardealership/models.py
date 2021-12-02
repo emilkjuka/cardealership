@@ -9,7 +9,7 @@ class Dealership(models.Model):
     dealership_y_coordinate = models.DecimalField(decimal_places=7, max_digits=12)
     dealership_x_coordinate = models.DecimalField(decimal_places=7, max_digits=12)
     
-    def __str__(self):
+    def dealership_information(self):
         return f"{self.dealership_name} y:{self.dealership_y_coordinate} x:{self.dealership_x_coordinate}"
        
 class Car(models.Model):
@@ -23,7 +23,7 @@ class Car(models.Model):
     car_state = models.CharField(max_length=50, choices=[('New','New'), ['Used', 'Used']])
     DealershipFK = models.IntegerField(default = 1)
     
-    def __str__(self):
+    def car_infromation(self):
         return f"{self.car_brand} {self.car_model} {self.car_color}"
     
 

@@ -36,5 +36,10 @@
         </div>
       </div>
     </nav>
+    <div>
+        {% for car in cars_list %}
+        <li>{{ car.car_infromation }}</li>
+        {% endfor %}
+    </div>
   </body>
 </html>
