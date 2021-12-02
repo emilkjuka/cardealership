@@ -9,3 +9,31 @@ def index(request):
     template = loader.get_template('cardealership/index.html')
     context = {}
     return HttpResponse(template.render(context, request))
+
+
+def cars(request):
+
+    template = loader.get_template('cardealership/index.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+
+def dealership(request):
+
+    template = loader.get_template('cardealership/index.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+
+def contact(request):
+
+    template = loader.get_template('cardealership/index.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+
+def aboutus(request):
+
+    template = loader.get_template('cardealership/index.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
