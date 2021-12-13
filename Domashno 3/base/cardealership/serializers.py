@@ -8,7 +8,6 @@ class CarSerializer(serializers.ModelSerializer):
         fields = ('id', 'car_brand', 'car_model', 'car_production_year',
                   'car_type', 'car_color', 'car_price', 'car_state', 'DealershipFK')
 
-
 class DealershipSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dealership
