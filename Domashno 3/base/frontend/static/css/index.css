@@ -97,6 +97,35 @@ body {
   width: 70%;
 }
 
+.container{
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+
+.aboutus-pic{
+  width: 50%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.aboutus{
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: right;
+  width: 30%;
+  font-size: large;
+  color:#009fff;
+  font-weight: bold;
+}
+
+.aboutus-header{
+  min-height: 15%;
+  color: #009fff;
+}
+
 @media (max-width: 800px) {
   .button_wrapper {
     justify-content: space-between;
@@ -131,3 +160,4 @@ body {
     overflow: scroll;
   }
 }
+
