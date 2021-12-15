@@ -8,4 +8,6 @@ urlpatterns = [
     path('home', index),
     path('aboutus',index),
     path('contact',index),
+    path('cars',index),
+    path('dealerships',index),
 ]

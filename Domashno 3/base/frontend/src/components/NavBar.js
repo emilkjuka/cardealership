@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
-export default class Home extends Component {
+export default class NavBar extends Component {
   constructor(props) {
     super(props);
   }
