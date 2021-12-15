@@ -10,13 +10,13 @@ export default class Home extends Component {
   render() {
     return (
       <header className="navbar">
-        <Link to={"/home"} className="navbar__item" className="navbar__logo">
+        <Link to={"/"} className="navbar__item" className="navbar__logo">
           <div className="navbar__item">
             <img src="https://img.icons8.com/fluency/48/000000/car.png" />
           </div>
         </Link>
         <Link
-          to={"/home"}
+          to={"/"}
           className="navbar__item"
           style={{ textDecoration: "none" }}
         >

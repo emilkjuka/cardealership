@@ -14,14 +14,14 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     return (
       <div>
         <Router>
           <NavBar />
           <Routes>
-            <Route path="/home" exact element={<p>this is home </p>} />
+            <Route path="/" exact element={<p>this is home </p>} />
             <Route path="/aboutus" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
