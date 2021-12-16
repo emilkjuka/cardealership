@@ -21,6 +21,7 @@ class Car(models.Model):
     car_color = models.CharField(default= "",max_length=50)
     car_price = models.CharField(max_length=50)
     car_state = models.CharField(max_length=50, choices=[('New','New'), ['Used', 'Used']])
+    car_image = models.CharField(max_length=1000000, default='')
     DealershipFK = models.IntegerField(default = 1)
     
     def car_infromation(self):
