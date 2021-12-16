@@ -13,7 +13,7 @@ export default class SearchBar extends Component {
   render() {
     return (
         <form >
-            <div className="searcbar_wrapper">
+            <div className="searchbar_wrapper">
           <TextField
             id="searchbar"
             sx={{ m: 1, width: "25ch" }}
