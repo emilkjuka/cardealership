@@ -14,8 +14,7 @@ export default class HomePage extends Component {
           <div className="left_side_wrapper">
             <div className="left_side_title">FIND YOUR DREAM CAR</div>
             <div className="left_side_introduction">
-              introduction to our website introduction to our website
-              introduction to our website introduction to our website
+            We all have a dream car. Some wish for a classy one, some for a speedster, whereas others dream of having a simple old-school gem. Which one do you dream of? With a simple click find the car of your dreams.
             </div>
             <div className="button_wrapper">
               <Link to={"/cars"} style={{ textDecoration: "none" }}>
@@ -25,7 +24,7 @@ export default class HomePage extends Component {
               </Link>
               <Link to={"/dealerships"} style={{ textDecoration: "none" }}>
                 <Button variant="contained">
-                  <p className="left_side_button">sort by dealer</p>
+                  <p className="left_side_button">sort by dealers</p>
                 </Button>
               </Link>
             </div>
