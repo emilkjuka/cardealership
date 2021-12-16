@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SearchBar from"./SearchBar";
+import Map from "./Map";
 
 export default class Dealerships extends Component {
   constructor(props) {
@@ -7,6 +7,13 @@ export default class Dealerships extends Component {
   }
 
   render() {
-    return <div><SearchBar /><p>this is the dealership page</p></div>;
+    return (
+      <div className="dealership_wrapper">
+        <div className="dealership_list"></div>
+        <div className="dealership_map_wrapper">
+          <Map />
+        </div>
+      </div>
+    );
   }
 }

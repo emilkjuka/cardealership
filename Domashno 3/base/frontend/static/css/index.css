@@ -3,7 +3,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 #main {
@@ -81,7 +81,7 @@ body {
   padding-top: 8%;
   margin: 5px;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
   flex-direction: row;
 }
@@ -98,7 +98,7 @@ body {
 }
 
 /*About Us*/
-.aboutus-container{
+.aboutus-container {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
@@ -106,13 +106,13 @@ body {
   padding-right: 10%;
 }
 
-.aboutus{
+.aboutus {
   text-align: right;
   font-size: 1.8rem;
-  color:#009fff;
+  color: #009fff;
 }
 
-.aboutus-header{
+.aboutus-header {
   min-height: 15%;
   padding-left: 5em;
   color: #009fff;
@@ -130,7 +130,7 @@ body {
 }
 
 /*Contact*/
-.contact-container{
+.contact-container {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
@@ -138,9 +138,9 @@ body {
   margin-top: 5em;
 }
 
-.contact-form{
+.contact-form {
   min-width: 50%;
-  padding-right:1em;
+  padding-right: 1em;
 }
 
 form {
@@ -157,10 +157,7 @@ form button {
   padding-left: 1em;
 }
 
-
-
 @media (max-width: 800px) {
-
   /* Home Page 800px */
   .button_wrapper {
     justify-content: space-evenly;
@@ -201,8 +198,7 @@ form button {
   }
 }
 
-@media (max-width:1200px){
-
+@media (max-width: 1200px) {
   /* About Us 1200px*/
   .aboutus-header {
     padding-left: 1em;
@@ -231,10 +227,29 @@ form button {
   .contact-pic {
     padding-top: 2em;
   }
-
 }
 
-.searchbar_wrapper{
+.searchbar_wrapper {
   display: flex;
   flex-direction: row;
+}
+
+.dealership_wrapper {
+  background-color: #009fff;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.dealership_list {
+  overflow-y: scroll;
+  display: flex;
+  width: 25%;
+  height: 100%;
+  flex-direction: column;
+}
+
+.dealership_map_wrapper {
+  width: 75%;
+  height: 100%;
 }
