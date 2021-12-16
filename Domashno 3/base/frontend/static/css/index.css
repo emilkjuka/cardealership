@@ -234,3 +234,7 @@ form button {
 
 }
 
+.searchbar_wrapper{
+  display: flex;
+  flex-direction: row;
+}
