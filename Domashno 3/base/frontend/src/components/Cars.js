@@ -80,10 +80,10 @@ export default class Cars extends Component {
                   <Card sx={{ maxWidth: 345 }} style={{ margin: "10px" }}>
                     <CardMedia
                       component="img"
-                      alt="green iguana"
+                      alt="car image"
                       height="140"
-                      image="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Audi_A5_Sportback_F5_IMG_2835.jpg/1200px-Audi_A5_Sportback_F5_IMG_2835.jpg"
-                    />
+                      image = {car.car_image}
+                      />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
                         {car.car_brand} {car.car_model}
