@@ -255,9 +255,8 @@ form button {
 }
 
 .cards_wrapper{
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding:1%;
-  justify-content: space-evenly;
+  margin-left: 2em;
+  margin-right: 2em;
+  display: grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr))
 }
