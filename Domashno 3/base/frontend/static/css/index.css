@@ -253,3 +253,11 @@ form button {
   width: 75%;
   height: 100%;
 }
+
+.cards_wrapper{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding:1%;
+  justify-content: space-evenly;
+}
