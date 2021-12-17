@@ -5,7 +5,6 @@ import {
   withScriptjs,
   withGoogleMap,
 } from "react-google-maps";
-import MarkerWithLabel from "react-google-maps/lib/components/addons/MarkerWithLabel";
 
 const MyMapComponent = withScriptjs(
   withGoogleMap((props) => (
