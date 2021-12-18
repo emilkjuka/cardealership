@@ -12,10 +12,10 @@ const MyMapComponent = withScriptjs(
       {props.isMarkerShown && (
         <Marker position={{ lat: 41.996387, lng: 21.437802 }} />
       )}
-      {props.cords.map(
-        (cords) => (
-          console.log(cords),
-          (<Marker position={{ lat: cords[0], lng: cords[1] }} />)
+      {props.dealerships.map(
+        (dealership) => (
+          console.log(dealership),
+          (<Marker position={{ lat: parseFloat(dealership.dealership_y_coordinate), lng: parseFloat(dealership.dealership_x_coordinate) }} />)
         )
       )}
     </GoogleMap>
@@ -31,7 +31,7 @@ export default class Map extends Component {
     return (
       <MyMapComponent
         isMarkerShown
-        cords={this.props.cords}
+        dealerships={this.props.dealerships}
         googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: "100%" }} />}
