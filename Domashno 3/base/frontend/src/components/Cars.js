@@ -13,77 +13,34 @@ import MenuItem from "@mui/material/MenuItem";
 export default class Cars extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      error: null,
-      isLoaded: false,
-      cars: [],
-      minValue: 0,
-      maxValue: 10,
-      itemsPerPage: 10,
+      cars: []
     };
   }
-  handleSelectChange = (event) => {
-    this.setState({
-      maxValue: event.target.value,
-      itemsPerPage: event.target.value
-    });
-  };
 
-  handleIndexChange = (event, value) => {
-    if (value <= 1) {
-      this.setState({
-        minValue: 0,
-        maxValue: 10,
-      });
-    } else {
-      this.setState({
-        minValue: value * this.state.itemsPerPage,
-        maxValue: (value + 1) * this.state.itemsPerPage,
-      });
-    }
-  };
 
-  componentDidMount() {
-    fetch("http://127.0.0.1:8000/api/list_cars")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            cars: result,
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error,
-          });
-        }
-      );
-  }
+componentDidMount(){
+  fetch("http://127.0.0.1:8000/api/list_cars")
+  .then((res)=>res.json())
+  .then((result)=>{this.setState({cars: result,});
+}
+);
+}
 
   render() {
-    const { error, isLoaded, cars } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <div>
-          <SearchBox />
-          <div className="cards_wrapper">
-            {cars.length > 0 &&
-              cars
-                .slice(this.state.minValue, this.state.maxValue)
-                .map((car) => (
-                  <Card sx={{ maxWidth: 345 }} style={{ margin: "10px" }}>
+    return (
+      <div>
+        <div className="cardContainer">
+          {this.state.cars.map((car,index)=>
+          
+              <Card sx={{ maxWidth: 345 }} style={{ margin: "10px" }}>
                     <CardMedia
                       component="img"
-                      alt="car image"
+                      alt="carImage"
                       height="140"
-                      image = {car.car_image}
-                      />
+                      image={car.car_image}
+                    />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
                         {car.car_brand} {car.car_model}
@@ -96,23 +53,10 @@ export default class Cars extends Component {
                       <Button size="small">Learn More</Button>
                     </CardActions>
                   </Card>
-                ))}
+          )}
           </div>
-          <Pagination
-            count={Math.round(cars.length / this.state.itemsPerPage)}
-            variant="outlined"
-            shape="rounded"
-            defaultPage={1}
-            total={cars.length}
-            onChange={this.handleIndexChange}
-          />
-          <Select label="itemsPerPage" onChange={this.handleSelectChange}>
-            <MenuItem value={10}>10</MenuItem>
-            <MenuItem value={15}>15</MenuItem>
-            <MenuItem value={50}>50</MenuItem>
-          </Select>
-        </div>
-      );
-    }
+      </div>
+    )
+      
   }
-}
+  }

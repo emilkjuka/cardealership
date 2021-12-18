@@ -254,7 +254,7 @@ form button {
   height: 100%;
 }
 
-.cards_wrapper{
+.cardContainer{
   margin-left: 2em;
   margin-right: 2em;
   display: grid;
