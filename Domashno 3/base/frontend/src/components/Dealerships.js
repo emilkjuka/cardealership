@@ -52,7 +52,7 @@ export default class Dealerships extends Component {
           </ul>
         </div>
         <div className="dealership_map_wrapper">
-          <Map cords={this.state.cords} />
+          <Map dealerships={this.state.dealerships} />
         </div>
       </div>
     );
