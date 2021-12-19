@@ -50,7 +50,7 @@ componentDidMount(){
                       </Typography>
                     </CardContent>
                     <CardActions>
-                      <Button size="small">Learn More</Button>
+                      <Button size="small">Show More</Button>
                     </CardActions>
                   </Card>
           )}

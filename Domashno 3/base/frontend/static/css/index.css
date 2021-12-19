@@ -157,6 +157,42 @@ form button {
   padding-left: 1em;
 }
 
+/*Searchbar*/
+.searchbar_wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+/*Dealerships*/
+
+.dealership_wrapper {
+  background-color: #009fff;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.dealership_list {
+  overflow-y: scroll;
+  display: flex;
+  width: 25%;
+  height: 100%;
+  flex-direction: column;
+}
+
+.dealership_map_wrapper {
+  width: 75%;
+  height: 100%;
+}
+
+/*Cars*/
+.cardContainer{
+  margin-left: 2em;
+  margin-right: 2em;
+  display: grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr))
+}
+
 @media (max-width: 800px) {
   /* Home Page 800px */
   .button_wrapper {
@@ -229,34 +265,3 @@ form button {
   }
 }
 
-.searchbar_wrapper {
-  display: flex;
-  flex-direction: row;
-}
-
-.dealership_wrapper {
-  background-color: #009fff;
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
-
-.dealership_list {
-  overflow-y: scroll;
-  display: flex;
-  width: 25%;
-  height: 100%;
-  flex-direction: column;
-}
-
-.dealership_map_wrapper {
-  width: 75%;
-  height: 100%;
-}
-
-.cardContainer{
-  margin-left: 2em;
-  margin-right: 2em;
-  display: grid;
-  grid-template-columns:repeat(auto-fill,minmax(200px,1fr))
-}
