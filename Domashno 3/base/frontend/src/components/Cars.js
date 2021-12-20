@@ -17,7 +17,7 @@ export default class Cars extends Component {
     this.state = {
       cars: [],
       pageNumber: 1,
-      itemsPerPage: 20,
+      itemsPerPage: 10,
       numberOfItems: 350,
       page_prefix: "?page=",
       query: "http://127.0.0.1:8000/api/list_cars",
@@ -40,8 +40,7 @@ export default class Cars extends Component {
         .then((res) => res.json())
         .then((result) => {
           this.setState({
-            cars: result["results"],
-            numberOfItems: result["count"],
+            cars: result["results"]
           });
         });
     }
@@ -55,7 +54,9 @@ export default class Cars extends Component {
     )
       .then((res) => res.json())
       .then((result) => {
-        this.setState({ cars: result["results"] });
+        this.setState({
+          cars: result["results"]
+        });
       });
   }
 
@@ -64,7 +65,7 @@ export default class Cars extends Component {
       <div className="cars_wrapper">
         <div className="cardContainer">
           {this.state.cars.map((car, index) => (
-            <Card sx={{ maxWidth: 345 }} style={{ margin: "10px" }}>
+            <Card sx={{ maxWidth: 400}} style={{ margin: "10px" }}>
               <CardMedia
                 component="img"
                 alt="carImage"
@@ -87,7 +88,9 @@ export default class Cars extends Component {
         </div>
         <div className="pagination_wrapper">
           <Pagination
-            count={Math.round(this.state.numberOfItems/this.state.itemsPerPage)}
+            count={Math.round(
+              this.state.numberOfItems / parseInt(this.state.itemsPerPage)
+            )}
             variant="outlined"
             shape="rounded"
             onChange={this.handlePageChange}
