@@ -15,48 +15,85 @@ export default class Cars extends Component {
     super(props);
 
     this.state = {
-      cars: []
+      cars: [],
+      pageNumber: 1,
+      itemsPerPage: 20,
+      numberOfItems: 350,
+      page_prefix: "?page=",
+      query: "http://127.0.0.1:8000/api/list_cars",
     };
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
 
+  handlePageChange(event, value) {
+    this.setState({
+      pageNumber: value,
+    });
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.pageNumber != this.state.pageNumber) {
+      fetch(
+        this.state.query
+          .concat(this.state.page_prefix)
+          .concat(this.state.pageNumber)
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          this.setState({
+            cars: result["results"],
+            numberOfItems: result["count"],
+          });
+        });
+    }
+  }
 
-componentDidMount(){
-  fetch("http://127.0.0.1:8000/api/list_cars")
-  .then((res)=>res.json())
-  .then((result)=>{this.setState({cars: result,});
-}
-);
-}
+  componentDidMount() {
+    fetch(
+      this.state.query
+        .concat(this.state.page_prefix)
+        .concat(this.state.pageNumber)
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        this.setState({ cars: result["results"] });
+      });
+  }
 
   render() {
     return (
-      <div>
+      <div className="cars_wrapper">
         <div className="cardContainer">
-          {this.state.cars.map((car,index)=>
-          
-              <Card sx={{ maxWidth: 345 }} style={{ margin: "10px" }}>
-                    <CardMedia
-                      component="img"
-                      alt="carImage"
-                      height="140"
-                      image={car.car_image}
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
-                        {car.car_brand} {car.car_model}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {car.car_price} <span>&#8364;</span>
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small">Show More</Button>
-                    </CardActions>
-                  </Card>
-          )}
-          </div>
+          {this.state.cars.map((car, index) => (
+            <Card sx={{ maxWidth: 345 }} style={{ margin: "10px" }}>
+              <CardMedia
+                component="img"
+                alt="carImage"
+                height="140"
+                image={car.car_image}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {car.car_brand} {car.car_model}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {car.car_price} <span>&#8364;</span>
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Show More</Button>
+              </CardActions>
+            </Card>
+          ))}
+        </div>
+        <div className="pagination_wrapper">
+          <Pagination
+            count={Math.round(this.state.numberOfItems/this.state.itemsPerPage)}
+            variant="outlined"
+            shape="rounded"
+            onChange={this.handlePageChange}
+          />
+        </div>
       </div>
-    )
-      
+    );
   }
-  }
+}

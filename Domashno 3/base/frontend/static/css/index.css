@@ -38,6 +38,7 @@ body {
   color: #009fff;
   vertical-align: middle;
 }
+/*Navbar*/
 
 /*Home page*/
 .home_wrapper {
@@ -96,6 +97,7 @@ body {
   height: 60%;
   width: 70%;
 }
+/*Home page*/
 
 /*About Us*/
 .aboutus-container {
@@ -128,6 +130,7 @@ body {
   color: #009fff;
   margin-left: 0.5em;
 }
+/*About Us*/
 
 /*Contact*/
 .contact-container {
@@ -156,12 +159,14 @@ form button {
   min-width: 50%;
   padding-left: 1em;
 }
+/*Contact*/
 
 /*Searchbar*/
 .searchbar_wrapper {
   display: flex;
   flex-direction: row;
 }
+/*Searchbar*/
 
 /*Dealerships*/
 
@@ -184,14 +189,33 @@ form button {
   width: 75%;
   height: 100%;
 }
+/*Dealerships*/
 
 /*Cars*/
-.cardContainer{
+.cars_wrapper {
+  display: flex;
+  height:100%;
+  width: 100%;
+  flex-direction: column;
+}
+.cardContainer {
   margin-left: 2em;
   margin-right: 2em;
   display: grid;
-  grid-template-columns:repeat(auto-fill,minmax(200px,1fr))
+  height: 90%;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
+
+
+.pagination_wrapper {
+  display: flex;
+  height:auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+/*Cars*/
 
 @media (max-width: 800px) {
   /* Home Page 800px */
