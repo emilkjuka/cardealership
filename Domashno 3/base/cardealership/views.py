@@ -7,15 +7,24 @@ from django.shortcuts import render
 from django.template import loader
 
 from rest_framework import generics, status
+from rest_framework import pagination
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
 
 from .serializers import CarSerializer, DealershipSerializer
 
 from .models import Car, Dealership
+#Custom Pagination
+
+class CustomPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size' 
+    max_page_size = 200
+    last_page_strings = ('the_end',)
+    
 # Create your views here.
-
-
+# Creation Views
 class CreateCarView(generics.CreateAPIView):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
@@ -25,9 +34,10 @@ class CreateDealershipView(generics.CreateAPIView):
     queryset = Dealership.objects.all()
     serializer_class = DealershipSerializer
 
-
+# Information Views
 class ListCarView(generics.ListAPIView):
     queryset = Car.objects.all()
+    pagination_class = CustomPagination
     serializer_class = CarSerializer
 
 
@@ -37,10 +47,9 @@ class ListDealershipView(generics.ListAPIView):
 
 
 class CarApiView(APIView):
-    def get(self, request, *args, **kwargs):
-        id = request.query_params["id"]
+    def get(self, request, id=-1, *args, **kwargs):
         number_of_car_objects = len(Car.objects.all())
-        if int(id) > number_of_car_objects:
+        if id > number_of_car_objects or id < 0:
             return HttpResponseNotFound('<h1>Page not found</h1>')
 
         car = Car.objects.get(pk=id)
