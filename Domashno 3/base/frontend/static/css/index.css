@@ -194,8 +194,6 @@ form button {
 /*Cars*/
 .cars_wrapper {
   display: flex;
-  height:100%;
-  width: 100%;
   flex-direction: column;
 }
 .cardContainer {
@@ -203,7 +201,6 @@ form button {
   margin-right: 2em;
   display: grid;
   height: 90%;
-  width: 100%;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
@@ -212,6 +209,7 @@ form button {
   display: flex;
   height:auto;
   width: 100%;
+  padding-bottom: 1em;
   justify-content: center;
   align-items: center;
 }
