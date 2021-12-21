@@ -2,18 +2,32 @@ import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import emailjs from 'emailjs-com';
+import { send } from 'emailjs-com';
 
 export default class Contact extends Component {
   constructor(props) {
     super(props);
+    this.sendEmail = this.sendEmail.bind(this);
   }
+
+  sendEmail(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('contact_service', 'cardealership', e.target, 'user_noNPU1eRJRT5CoJb7YHnj')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+    }
 
   render() {
     return (
       <div>
         <div className="contact-container">
           <div className="contact-form">
-            <form>
+            <form  onSubmit={this.sendEmail}>
               <TextField name = "firstName" required label="First Name" />
               <br/>
               <TextField name ="surname" label="Surname"/>
