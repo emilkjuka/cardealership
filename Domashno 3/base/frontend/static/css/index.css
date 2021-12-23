@@ -225,6 +225,8 @@ form button {
   padding-bottom: 1em;
   justify-content: center;
   align-items: center;
+  position:fixed;
+  bottom: 1em;
 }
 /*Cars*/
 
@@ -331,5 +333,11 @@ form button {
     height: 60%;
   }
   /*Dealerships*/
+
+  /*Cars*/
+  .pagination_wrapper {
+    position: relative;
+  }
+  /*Cars*/
 }
 
