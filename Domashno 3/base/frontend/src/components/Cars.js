@@ -21,6 +21,7 @@ export default class Cars extends Component {
       numberOfItems: 350,
       page_prefix: "?page=",
       query: "http://127.0.0.1:8000/api/list_cars",
+      searchTerm: 0,
     };
     this.handlePageChange = this.handlePageChange.bind(this);
   }
@@ -40,7 +41,7 @@ export default class Cars extends Component {
         .then((res) => res.json())
         .then((result) => {
           this.setState({
-            cars: result["results"]
+            cars: result["results"],
           });
         });
     }
@@ -55,46 +56,69 @@ export default class Cars extends Component {
       .then((res) => res.json())
       .then((result) => {
         this.setState({
-          cars: result["results"]
+          cars: result["results"],
         });
       });
   }
 
   render() {
+    console.log(this.state.searchTerm);
     return (
-      <div className="cars_wrapper">
-        <div className="cardContainer">
-          {this.state.cars.map((car, index) => (
-            <Card sx={{ maxWidth: 400}} style={{ margin: "10px" }}>
-              <CardMedia
-                component="img"
-                alt="carImage"
-                height="140"
-                image={car.car_image}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {car.car_brand} {car.car_model}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {car.car_price} <span>&#8364;</span>
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Show More</Button>
-              </CardActions>
-            </Card>
-          ))}
-        </div>
-        <div className="pagination_wrapper">
-          <Pagination
-            count={Math.round(
-              this.state.numberOfItems / parseInt(this.state.itemsPerPage)
-            )}
-            variant="outlined"
-            shape="rounded"
-            onChange={this.handlePageChange}
-          />
+      <div>
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(event) =>
+            this.setState({ searchTerm: event.target.value })
+          }
+        />
+
+        <div className="cars_wrapper">
+          <div className="cardContainer">
+            {this.state.cars
+              .filter((car) => {
+                if (this.state.searchTerm == "") {
+                  return car;
+                } else if (
+                  car.car_brand
+                    .toLowerCase()
+                    .includes(this.state.searchTerm.toLowerCase())
+                ) {
+                  return car;
+                }
+              })
+              .map((car, index) => (
+                <Card sx={{ maxWidth: 400 }} style={{ margin: "10px" }}>
+                  <CardMedia
+                    component="img"
+                    alt="carImage"
+                    height="140"
+                    image={car.car_image}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {car.car_brand} {car.car_model}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {car.car_price} <span>&#8364;</span>
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small">Show More</Button>
+                  </CardActions>
+                </Card>
+              ))}
+          </div>
+          <div className="pagination_wrapper">
+            <Pagination
+              count={Math.round(
+                this.state.numberOfItems / parseInt(this.state.itemsPerPage)
+              )}
+              variant="outlined"
+              shape="rounded"
+              onChange={this.handlePageChange}
+            />
+          </div>
         </div>
       </div>
     );
