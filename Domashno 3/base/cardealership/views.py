@@ -1,13 +1,16 @@
 import string
+from django.db import connections
 
 from django.db.models import query
 from django.http import HttpResponse
 from django.http.response import HttpResponseNotFound
 from django.shortcuts import render
 from django.template import loader
-
+from django.core.paginator import Paginator
+from django.utils.regex_helper import contains
 from rest_framework import generics, status
 from rest_framework import pagination
+from rest_framework.serializers import Serializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
@@ -15,16 +18,19 @@ from rest_framework.pagination import PageNumberPagination
 from .serializers import CarSerializer, DealershipSerializer
 
 from .models import Car, Dealership
-#Custom Pagination
+# Custom Pagination
+
 
 class CustomPagination(PageNumberPagination):
     page_size = 10
-    page_size_query_param = 'page_size' 
+    page_size_query_param = 'page_size'
     max_page_size = 200
     last_page_strings = ('the_end',)
-    
+
 # Create your views here.
 # Creation Views
+
+
 class CreateCarView(generics.CreateAPIView):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
@@ -39,6 +45,28 @@ class ListCarView(generics.ListAPIView):
     queryset = Car.objects.all()
     pagination_class = CustomPagination
     serializer_class = CarSerializer
+    
+
+class ListCarQueriedView(generics.ListAPIView):
+    queryset = Car.objects.all()
+    serializer_class = CarSerializer
+
+    def get(self, request, query='', *args, **kwargs):
+        paginator = PageNumberPagination()
+        paginator.page_size = 10
+        
+        print(query)
+        if not isinstance(query, str):
+            return HttpResponse("Invalid query")
+        
+        if query != '':
+            cars = [car for car in Car.objects.all() if query in  car.car_brand.lower()]
+            # cars = Car.objects.filter()
+
+        paginated_cars = paginator.paginate_queryset(cars, request)
+        serializer = CarSerializer(paginated_cars, many=True)
+        context = {'count': len(cars), 'results': serializer.data}
+        return Response(context)
 
 
 class ListDealershipView(generics.ListAPIView):
