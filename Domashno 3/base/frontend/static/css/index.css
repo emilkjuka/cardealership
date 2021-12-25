@@ -230,46 +230,39 @@ form button {
 }
 /*Cars*/
 
-@media (max-width: 800px) {
-  /* Home Page 800px */
-  .button_wrapper {
-    justify-content: space-evenly;
-  }
+/*Car Detail*/
 
-  .left_side {
-    width: 80%;
-  }
-
-  .right_side {
-    flex-direction: column;
-    width: 80%;
-  }
-
-  .left_side_button {
-    font-size: 10px;
-  }
-
-  .home_wrapper {
-    flex-direction: column;
-  }
-
-  .left_side_title {
-    font-size: 1.5em;
-  }
-
-  .left_side_introduction {
-    font-size: medium;
-  }
-
-  .left_side_wrapper {
-    width: 100%;
-  }
-
-  .image_item {
-    width: 100%;
-    height: auto;
-  }
+.itemDetailContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 3em;
 }
+
+.carDetailContainer {
+  border-radius: 5%;
+  width: 78%;
+}
+
+.carDetailInfo{
+margin-left: 2em;
+}
+
+.carDetailImage > img {
+  display: block;
+  border-radius: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.testDriveContact{
+  width: 20%;
+  justify-content: right;
+  justify-items: right;
+}
+/*Car Detail*/
+
 
 @media (max-width: 1200px) {
   /* About Us 1200px*/
@@ -339,4 +332,75 @@ form button {
     position: relative;
   }
   /*Cars*/
+
+  /*Car Detail*/
+  .itemDetailContainer{
+    flex-direction: column;
+    margin-right: 2em;
+    margin-left: 2em;
+  }
+  .carDetailContainer {
+    width: 100%;
+  }
+  .carDetailInfo{
+    margin-left: 0;
+    }
+  .testDriveContact{
+    width: 50%;
+  }
+  .carDetailImage > img {
+    width: 100%;
+  }
+  /*Car Detail*/
 }
+
+@media (max-width: 800px) {
+  /* Home Page 800px */
+  .button_wrapper {
+    justify-content: space-evenly;
+  }
+
+  .left_side {
+    width: 80%;
+  }
+
+  .right_side {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .left_side_button {
+    font-size: 10px;
+  }
+
+  .home_wrapper {
+    flex-direction: column;
+  }
+
+  .left_side_title {
+    font-size: 1.5em;
+  }
+
+  .left_side_introduction {
+    font-size: medium;
+  }
+
+  .left_side_wrapper {
+    width: 100%;
+  }
+
+  .image_item {
+    width: 100%;
+    height: auto;
+  }
+/*Car Detail*/
+  .testDriveContact{
+    width: 100%;
+  }
+  .testDriveContact > form{
+    width: 95%;
+  }
+/*Car Detail*/
+}
+
+
