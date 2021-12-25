@@ -33,7 +33,10 @@ export default class Dealerships extends Component {
         <div className="dealership_list">
           <ul className="dealerships_ul">
             {this.state.dealerships.map((dealer) => (
-              <Card sx={{ display: "flex", width: "90%", m: 1 }} className="dealership_card">
+              <Card
+                sx={{ display: "flex", width: "90%", m: 1 }}
+                className="dealership_card"
+              >
                 <CardContent sx={{ flex: "1 0 auto" }}>
                   <Typography component="div" variant="h5">
                     {dealer.dealership_name}
@@ -46,7 +49,9 @@ export default class Dealerships extends Component {
                     {dealer.id}
                   </Typography>
                   <div className="dealership_buttonContainer">
-                  <Button variant="contained"><i class="fas fa-car"></i></Button>
+                    <Button variant="contained">
+                      <i class="fas fa-car"></i>
+                    </Button>
                   </div>
                 </CardContent>
               </Card>

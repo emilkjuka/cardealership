@@ -186,7 +186,7 @@ form button {
 }
 
 .dealership_card {
-  padding-bottom:1em;
+  padding-bottom: 1em;
   width: auto;
 }
 
@@ -220,12 +220,12 @@ form button {
 }
 .pagination_wrapper {
   display: flex;
-  height:auto;
+  height: auto;
   width: 100%;
   padding-bottom: 1em;
   justify-content: center;
   align-items: center;
-  position:fixed;
+  position: fixed;
   bottom: 1em;
 }
 /*Cars*/
@@ -308,7 +308,7 @@ form button {
     flex-direction: column;
     height: 100%;
   }
-  
+
   .dealership_list {
     overflow-x: scroll;
     width: 100%;
@@ -319,11 +319,11 @@ form button {
     display: flex;
     flex-wrap: wrap;
   }
-  
+
   .dealership_card {
-    padding-bottom:1em;
+    padding-bottom: 1em;
   }
-  
+
   .dealership_buttonContainer {
     height: 70%;
   }
@@ -340,4 +340,3 @@ form button {
   }
   /*Cars*/
 }
-

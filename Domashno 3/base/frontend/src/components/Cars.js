@@ -1,4 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -216,9 +217,11 @@ export default class Cars extends Component {
                     {car.car_price} <span>&#8364;</span>
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  <Button size="small">Show More</Button>
-                </CardActions>
+                <Link to={`/cars/${car.id}`}>
+                  <CardActions>
+                    <Button size="small">Show More</Button>
+                  </CardActions>
+                </Link>
               </Card>
             ))}
           </div>
