@@ -41,11 +41,13 @@ class CreateDealershipView(generics.CreateAPIView):
     serializer_class = DealershipSerializer
 
 # Information Views
+
+
 class ListCarView(generics.ListAPIView):
     queryset = Car.objects.all()
     pagination_class = CustomPagination
     serializer_class = CarSerializer
-    
+
 
 class ListCarQueriedView(generics.ListAPIView):
     queryset = Car.objects.all()
@@ -54,14 +56,22 @@ class ListCarQueriedView(generics.ListAPIView):
     def get(self, request, query='', *args, **kwargs):
         paginator = PageNumberPagination()
         paginator.page_size = 10
-        
+
         print(query)
         if not isinstance(query, str):
             return HttpResponse("Invalid query")
-        
-        if query != '':
-            cars = [car for car in Car.objects.all() if query in  car.car_brand.lower()]
-            # cars = Car.objects.filter()
+
+        if 'dealership=' in query:
+            dealershipFK = query.split('=')
+            dealershipFK = int(dealershipFK[1])
+            if dealershipFK > 0 and dealershipFK <= 27:
+                print(dealershipFK)
+                cars = [car for car in Car.objects.all(
+                ) if car.DealershipFK == dealershipFK]
+
+        elif query != '':
+            cars = [car for car in Car.objects.all(
+            ) if query in car.car_brand.lower()]
 
         paginated_cars = paginator.paginate_queryset(cars, request)
         serializer = CarSerializer(paginated_cars, many=True)

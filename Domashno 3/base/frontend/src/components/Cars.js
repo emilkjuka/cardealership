@@ -1,5 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -12,7 +13,6 @@ import Pagination from "@mui/material/Pagination";
 export default class Cars extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       cars: [],
       pageNumber: 1,
@@ -26,6 +26,7 @@ export default class Cars extends Component {
     };
     this.handlePageChange = this.handlePageChange.bind(this);
   }
+
 
   handlePageChange(event, value) {
     if (this.state.searchTerm == 0) {
@@ -164,21 +165,44 @@ export default class Cars extends Component {
   }
 
   componentDidMount() {
-    fetch(
-      this.state.query
-        .concat(this.state.page_prefix)
-        .concat(this.state.pageNumber)
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        this.setState({
-          cars: result["results"],
-          allItems: result["count"],
+
+    if (
+      parseInt(this.props.dealerID) > 0 &&
+      parseInt(this.props.dealerID) <= 27
+    ) {
+      console.log(this.props.dealerID);
+      fetch(
+        this.state.query
+          .concat("/dealership=")
+          .concat(this.state.props.dealershipID)
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          this.setState({
+            cars: result["results"],
+            allItems: result["count"],
+          });
+        })
+        .catch((err) => {
+          console.log(err);
         });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    } else {
+      fetch(
+        this.state.query
+          .concat(this.state.page_prefix)
+          .concat(this.state.pageNumber)
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          this.setState({
+            cars: result["results"],
+            allItems: result["count"],
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }
 
   render() {

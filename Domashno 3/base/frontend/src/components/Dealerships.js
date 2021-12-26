@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Map from "./Map";
+import { Link } from "react-router-dom";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -36,6 +37,7 @@ export default class Dealerships extends Component {
               <Card
                 sx={{ display: "flex", width: "90%", m: 1 }}
                 className="dealership_card"
+                key={dealer.id}
               >
                 <CardContent sx={{ flex: "1 0 auto" }}>
                   <Typography component="div" variant="h5">
@@ -49,9 +51,11 @@ export default class Dealerships extends Component {
                     {dealer.id}
                   </Typography>
                   <div className="dealership_buttonContainer">
-                    <Button variant="contained">
-                      <i class="fas fa-car"></i>
-                    </Button>
+                    <Link to={"/cars"}>
+                      <Button variant="contained">
+                        <i class="fas fa-car"></i>
+                      </Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
