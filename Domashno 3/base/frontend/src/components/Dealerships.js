@@ -61,6 +61,11 @@ export default class Dealerships extends Component {
                         <i class="fas fa-car"></i>
                       </Button>
                     </Link>
+                    <a href={("https://www.google.com/maps/place/").concat(dealer.dealership_y_coordinate).concat(",").concat(dealer.dealership_x_coordinate)}>
+                    <Button variant="contained">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </Button>
+                    </a>
                   </div>
                 </CardContent>
               </Card>

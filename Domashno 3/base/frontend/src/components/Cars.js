@@ -8,6 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
+import TextField from '@mui/material/TextField';
 
 export default class Cars extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ export default class Cars extends Component {
       });
     }
   }
+
   componentDidUpdate(prevProps, prevState) {
     console.log(this.state.currentSearchPage);
     console.log(this.state.pageNumber);
@@ -190,8 +192,8 @@ export default class Cars extends Component {
   render() {
     return (
       <div>
-        <input
-          type="text"
+        
+        <TextField type="text"
           placeholder="Search..."
           onChange={(event) =>
             this.setState({
@@ -200,7 +202,7 @@ export default class Cars extends Component {
               currentSearchPage: 1,
             })
           }
-        />
+          id="outlined-basic" label="Search" variant="outlined" />
         <div className="cars_wrapper">
           <div className="cardContainer">
             {this.state.cars.map((car, index) => (

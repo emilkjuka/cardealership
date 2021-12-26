@@ -200,6 +200,10 @@ form button {
   float: right;
 }
 
+.dealership_list button a{
+  color: white;
+}
+
 .dealership_map_wrapper {
   width: 75%;
   height: 100%;
