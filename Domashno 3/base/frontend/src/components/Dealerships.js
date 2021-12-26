@@ -51,7 +51,12 @@ export default class Dealerships extends Component {
                     {dealer.id}
                   </Typography>
                   <div className="dealership_buttonContainer">
-                    <Link to={"/cars"}>
+                    <Link
+                      to={{
+                        pathname: "/cars",
+                        search: "id=".concat(dealer.id),
+                      }}
+                    >
                       <Button variant="contained">
                         <i class="fas fa-car"></i>
                       </Button>

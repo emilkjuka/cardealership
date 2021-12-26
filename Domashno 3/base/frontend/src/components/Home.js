@@ -23,7 +23,7 @@ export default class Home extends Component {
             <Route path="/" exact element={<HomePage />} />
             <Route path="/aboutus" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/cars" exact element={<Cars />} />
+            <Route path="/cars" exact element={<Cars/>} />
             <Route path="/dealerships" element={<Dealerships />} />
             <Route path="/cars/:id" element={<ItemDetail />} />
           </Routes>

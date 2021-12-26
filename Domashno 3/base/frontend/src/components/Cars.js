@@ -1,6 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-import { Link} from "react-router-dom";
-
+import { Link, Location } from "react-router-dom";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -22,11 +21,11 @@ export default class Cars extends Component {
       page_prefix: "?page=",
       query: "http://127.0.0.1:8000/api/list_cars",
       searchTerm: 0,
+      dealershipID: -1,
       currentSearchPage: 1,
     };
     this.handlePageChange = this.handlePageChange.bind(this);
   }
-
 
   handlePageChange(event, value) {
     if (this.state.searchTerm == 0) {
@@ -165,44 +164,27 @@ export default class Cars extends Component {
   }
 
   componentDidMount() {
-
-    if (
-      parseInt(this.props.dealerID) > 0 &&
-      parseInt(this.props.dealerID) <= 27
-    ) {
-      console.log(this.props.dealerID);
-      fetch(
-        this.state.query
-          .concat("/dealership=")
-          .concat(this.state.props.dealershipID)
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          this.setState({
-            cars: result["results"],
-            allItems: result["count"],
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      fetch(
-        this.state.query
-          .concat(this.state.page_prefix)
-          .concat(this.state.pageNumber)
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          this.setState({
-            cars: result["results"],
-            allItems: result["count"],
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    if (location.search != "" && location.search.includes("?id=")) {
+      const id = location.search.split("=")[1];
+      this.setState({
+        searchTerm: ("dealership=").concat(id),
+      });
     }
+    fetch(
+      this.state.query
+        .concat(this.state.page_prefix)
+        .concat(this.state.pageNumber)
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        this.setState({
+          cars: result["results"],
+          allItems: result["count"],
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
