@@ -11,6 +11,8 @@ export default class Contact extends Component {
     this.sendEmail = this.sendEmail.bind(this);
   }
 
+  //Email JS initialization
+
   sendEmail(e) {
     e.preventDefault();
 
@@ -27,7 +29,10 @@ export default class Contact extends Component {
       <div>
         <div className="contact-container">
           <div className="contact-form">
-            <form  onSubmit={this.sendEmail}>
+
+            {/* Email JS Contact form */}
+
+            <form  onSubmit={this.sendEmail}>         
               <TextField name = "firstName" required label="First Name" />
               <br/>
               <TextField name ="surname" label="Surname"/>

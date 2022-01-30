@@ -20,6 +20,9 @@ export default class ItemDetail extends Component {
     this.sendEmail = this.sendEmail.bind(this);
   }
 
+
+  // Email JS Initialization
+
   sendEmail(e) {
     e.preventDefault();
 
@@ -42,6 +45,7 @@ export default class ItemDetail extends Component {
   render() {
     console.log(this.state.cars);
     return (
+
       <div className="itemDetailContainer">
       <div className="carDetailContainer">
         <div className="carDetailImage">
@@ -88,6 +92,9 @@ export default class ItemDetail extends Component {
           </CardContent>
         </Card>*/ }
       </div>
+
+          {/* Email JS Testdrive form */}
+
       <div className="testDriveContact">
         <h1>Interested in a Test Drive?</h1>
         <h3>Our team will contact you after you've shown interest with the form bellow</h3>
