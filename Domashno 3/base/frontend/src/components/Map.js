@@ -5,7 +5,7 @@ import {
   withScriptjs,
   withGoogleMap,
 } from "react-google-maps";
-
+// returns a map component made with the google api 
 const MyMapComponent = withScriptjs(
   withGoogleMap((props) => (
     <GoogleMap defaultZoom={12} defaultCenter={{ lat: 41.98, lng: 21.437802 }}>

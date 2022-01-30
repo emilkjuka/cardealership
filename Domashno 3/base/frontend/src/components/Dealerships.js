@@ -21,6 +21,7 @@ export default class Dealerships extends Component {
   }
 
   componentDidMount() {
+    // fetching dealership list from the api
     fetch("http://127.0.0.1:8000/api/list_dealerships")
       .then((response) => response.json())
       .then((list) => {

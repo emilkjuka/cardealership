@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import TextField from '@mui/material/TextField';
-
+// cars component
 export default class Cars extends Component {
   constructor(props) {
     super(props);
@@ -43,6 +43,7 @@ export default class Cars extends Component {
   componentDidUpdate(prevProps, prevState) {
     console.log(this.state.currentSearchPage);
     console.log(this.state.pageNumber);
+    // configuring link so that it can fetch needed information from the api // 46-167
     if (this.state.searchTerm != 0) {
       console.log("searchame");
       if (prevState.currentSearchPage != this.state.currentSearchPage) {
